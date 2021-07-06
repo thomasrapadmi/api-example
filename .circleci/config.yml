@@ -3,10 +3,9 @@ version: 2.1
 orbs:
   node: circleci/node@4.1
 
-context:
-    postman
-
 jobs:
+  context:
+      postman
   test:  
     docker:
       - image: cimg/node:15.1
