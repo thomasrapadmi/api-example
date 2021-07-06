@@ -20,7 +20,6 @@ jobs:
     steps:
       - setup_remote_docker:
           version: 19.03.13
-          docker_layer_caching: true
       - run:
           name: Run UI Tests
           command: docker run 060201/automation:v1.05 test -Ddevice=Samsung-Galaxy-10_11 -DplanName=Sprint-21
