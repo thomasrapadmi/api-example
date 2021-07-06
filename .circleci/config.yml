@@ -16,13 +16,14 @@ jobs:
           command: TESTRAIL_DOMAIN=apadmitest.testrail.net TESTRAIL_USERNAME=thomasr@apadmi.com TESTRAIL_APIKEY=lEDkJCnJuTV5FvkaWq/F-dXN1NTP7GrnB3YkXjAkf TESTRAIL_PROJECTID=82 TESTRAIL_TITLE=wattbike-api-testrun TESTRAIL_INCLUDEALL=false npx newman run https://api.getpostman.com/collections/8282165-f46688dc-e92e-4d05-8c8f-c4f56bcfc6c2?apikey=PMAK-60b5f568fb1bae0034282724-145965478b116fa57aff5a306babe6d973 --environment https://api.getpostman.com/environments/8282165-c41780f9-cc89-47b7-b987-56edac95b8ca?apikey=PMAK-60b5f568fb1bae0034282724-145965478b116fa57aff5a306babe6d973 -r cli,htmlextra,testrail 
   test-ui:  
     docker:
-      - image: 060201/automation:v1.09
+      - image: 060201/automation:v1.05
     steps:
       - setup_remote_docker:
           version: 19.03.13
+          docker_layer_caching: true
       - run:
           name: Run UI Tests
-          command: docker run 060201/automation:v1.09 test -Ddevice=Samsung-Galaxy-10_11 -DplanName=Sprint-21
+          command: docker run 060201/automation:v1.05 test -Ddevice=Samsung-Galaxy-10_11 -DplanName=Sprint-21
 
 workflows:
   deploy: 
