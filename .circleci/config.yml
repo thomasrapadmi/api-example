@@ -14,11 +14,8 @@ jobs:
       # - node/install-packages:
       #     pkg-manager: yarn 
       - run:
-          name: Install Newman
-          command: npm install newman
-      - run:
           name: Run API Tests
-          command: newman run https://api.getpostman.com/collections/8282165-f46688dc-e92e-4d05-8c8f-c4f56bcfc6c2apikey=PMAK-60b5f568fb1bae0034282724-145965478b116fa57aff5a306babe6d973 --environment https://api.getpostman.com/environments/8282165-c41780f9-cc89-47b7-b987-56edac95b8ca?apikey=PMAK-60b5f568fb1bae0034282724-145965478b116fa57aff5a306babe6d973 -r cli
+          command: npm install newman && newman run https://api.getpostman.com/collections/8282165-f46688dc-e92e-4d05-8c8f-c4f56bcfc6c2apikey=PMAK-60b5f568fb1bae0034282724-145965478b116fa57aff5a306babe6d973 --environment https://api.getpostman.com/environments/8282165-c41780f9-cc89-47b7-b987-56edac95b8ca?apikey=PMAK-60b5f568fb1bae0034282724-145965478b116fa57aff5a306babe6d973 -r cli
 
 workflows:
   # Below is the definition of your workflow.
