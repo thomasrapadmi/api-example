@@ -1,0 +1,32 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.1
+
+
+jobs:
+  build-and-test:  
+    docker:
+      - image: cimg/node:15.1
+    steps:
+      
+      # If you are using yarn instead npm, remove the line above and uncomment the two lines below.
+      # - node/install-packages:
+      #     pkg-manager: yarn 
+      - run:
+          name: Install Newman
+          command: npm install newman
+      - run:
+          name: Run API Tests
+          command: newman run https://api.getpostman.com/collections/8282165-f46688dc-e92e-4d05-8c8f-c4f56bcfc6c2apikey=PMAK-60b5f568fb1bae0034282724-145965478b116fa57aff5a306babe6d973 --environment https://api.getpostman.com/environments/8282165-c41780f9-cc89-47b7-b987-56edac95b8ca?apikey=PMAK-60b5f568fb1bae0034282724-145965478b116fa57aff5a306babe6d973 -r cli
+
+workflows:
+  # Below is the definition of your workflow.
+  # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
+  # CircleCI will run this workflow on every commit.
+  # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows
+  sample: 
+    jobs:
+      - build-and-test
+      # For running simple node tests, you could optionally use the node/test job from the orb to replicate and replace the job above in fewer lines.
+      # - node/test
