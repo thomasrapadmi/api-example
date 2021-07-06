@@ -20,7 +20,7 @@ jobs:
           command: npm install
       - run:
           name: talk
-          command: echo hello
+          command: echo $POSTMAN_COLLECTION_ID
 
 workflows:
   # Below is the definition of your workflow.
