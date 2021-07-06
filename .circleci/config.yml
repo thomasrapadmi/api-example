@@ -6,6 +6,8 @@ orbs:
 
 jobs:
   test:  
+    context:
+      - postman
     docker:
       - image: cimg/node:15.1
     steps:
