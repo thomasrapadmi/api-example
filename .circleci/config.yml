@@ -17,7 +17,7 @@ jobs:
       #     pkg-manager: yarn 
       - run:
           name: Run API Tests
-          command: npx newman run 
+          command: npm install
 
 workflows:
   # Below is the definition of your workflow.
