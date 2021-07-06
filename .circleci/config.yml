@@ -18,6 +18,8 @@ jobs:
     docker:
       - image: 060201/automation:v1.09
     steps:
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
           name: Run UI Tests
           command: docker run 060201/automation:v1.09 test -Ddevice=Samsung-Galaxy-10_11 -DplanName=Sprint-21
